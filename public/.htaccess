@@ -30,7 +30,8 @@ Options All -Indexes
     # request to the front controller, index.php
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
+	RewriteCond $1 !^(index.php|images|css|js|uploads|phpMyAdmin|assets|fonts|robots.txt)
+    	RewriteRule ^(.*)$ index.php/$1 [L]
 
 	# Ensure Authorization header is passed along
     RewriteCond %{HTTP:Authorization} .

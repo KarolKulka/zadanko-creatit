@@ -1,5 +1,10 @@
 <?php namespace Config;
 
+use CodeIgniter\Validation\CreditCardRules;
+use CodeIgniter\Validation\FileRules;
+use CodeIgniter\Validation\FormatRules;
+use CodeIgniter\Validation\Rules;
+
 class Validation
 {
 	//--------------------------------------------------------------------
@@ -13,10 +18,10 @@ class Validation
 	 * @var array
 	 */
 	public $ruleSets = [
-		\CodeIgniter\Validation\Rules::class,
-		\CodeIgniter\Validation\FormatRules::class,
-		\CodeIgniter\Validation\FileRules::class,
-		\CodeIgniter\Validation\CreditCardRules::class,
+		Rules::class,
+		FormatRules::class,
+		FileRules::class,
+		CreditCardRules::class,
 	];
 
 	/**
@@ -33,4 +38,10 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+    public $getWeather = [
+        'city' => 'required|alpha_space',
+        'country' => 'required|alpha_space',
+    ];
+
 }
